@@ -75,8 +75,10 @@ juke.factory('PlayerFactory', function ($rootScope) {
     $rootScope.$evalAsync();
   });
 
-  audio.addEventListener('timeupdate', function () {
+  audio.addEventListener('timeupdate', function timeUpdate () {
+    console.log(audio.currentTime)
     progress = audio.currentTime / audio.duration;
+    console.log(progress);
     $rootScope.$evalAsync();
   });
 

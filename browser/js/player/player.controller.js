@@ -5,6 +5,7 @@ juke.controller('PlayerCtrl', function ($scope, $rootScope, PlayerFactory) {
   angular.extend($scope, PlayerFactory); // copy props from param2 to param1
 
   $scope.toggle = function () {
+    console.log('hi');
     if ( PlayerFactory.isPlaying() ) PlayerFactory.pause();
     else PlayerFactory.resume();
   };
@@ -14,7 +15,11 @@ juke.controller('PlayerCtrl', function ($scope, $rootScope, PlayerFactory) {
   };
 
   $scope.handleProgressClick = function (evt) {
+    console.log('clicked');
     PlayerFactory.seek(evt.offsetX / evt.currentTarget.scrollWidth);
   };
 
+  $scope.startScrubbing = function (evt) {
+    console.log('mousedown', evt);
+  }
 });
